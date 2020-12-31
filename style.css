@@ -1,0 +1,361 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+:root {
+	--primaryColor: #128190;
+	--mainWhite: #fff;
+	--mainBlack: #222;
+	--mainGrey: rgb(239, 236, 240);
+	--mainSpacing: 0.1rem;
+	--mainTransition: all 0.3s linear;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	color: var(--mainBlack);
+	background: var(--mainWhite);
+	font-family: "Lato", sans-serif;
+}
+
+/* Navbar goes here */
+.navbar {
+	position: sticky;
+	top: 0;
+	height: 60px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	background: rgb(239, 236, 240);
+	z-index: 1;
+}
+
+.navbar-center {
+	width: 100%;
+	max-width: 1170px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 1.5rem;
+}
+
+.navLogo {
+	letter-spacing: 0.3rem;
+}
+.navLogoSpan {
+	color: var(--primaryColor);
+}
+@media (max-width: 385px) {
+	.navLogo {
+		letter-spacing: 0.2rem;
+	}
+}
+
+.nav-icon {
+	font-size: 1.5rem;
+}
+
+.cart-btn {
+	position: relative;
+	cursor: pointer;
+}
+
+.cart-items {
+	position: absolute;
+	top: -8px;
+	right: -8px;
+	background: var(--primaryColor);
+	padding: 0 5px;
+	border-radius: 30%;
+	color: var(--mainWhite);
+}
+/* End of Navbar */
+
+/* Jumbo or Hero section starts */
+.hero {
+	min-height: calc(100vh - 60px);
+	background: url("./images/movie.jpg") center/cover no-repeat;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.banner {
+	text-align: center;
+	background: rgb(239, 236, 240, 0.8);
+	display: inline-block;
+	padding: 2rem;
+}
+
+.banner-title {
+	font-size: 3.4rem;
+	text-transform: uppercase;
+	letter-spacing: var(--mainSpacing);
+	margin-bottom: 3rem;
+}
+@media (max-width: 750px) {
+	.banner-title {
+		font-size: 2.5rem;
+	}
+}
+@media (max-width: 592px) {
+	.banner-title {
+		font-size: 2rem;
+		margin-bottom: 2.5rem;
+	}
+}
+@media (max-width: 496px) {
+	.banner-title {
+		font-size: 1.5rem;
+		margin-bottom: 1.5rem;
+	}
+}
+@media (max-width: 400px) {
+	.banner-title {
+		font-size: 2.4rem;
+		/* margin-bottom: 1.5rem; */
+	}
+}
+
+.banner-btn {
+	padding: 1rem 3rem;
+	text-transform: uppercase;
+	letter-spacing: var(--mainSpacing);
+	font-size: 1rem;
+	background: var(--primaryColor);
+	color: var(--mainBlack);
+	border: 1px solid var(--primaryColor);
+	transition: var(--mainTransition);
+	cursor: pointer;
+}
+
+.banner-btn:hover {
+	background: transparent;
+	color: var(--primaryColor);
+}
+/* Jumbo or Hero section ends */
+
+/* PRODUCT section */
+.products {
+	padding: 4rem 0;
+}
+
+.section-title h2 {
+	text-align: center;
+	font-size: 2.5rem;
+	margin-bottom: 5rem;
+	text-transform: capitalize;
+	letter-spacing: var(--mainSpacing);
+}
+
+.products-center {
+	width: 90vw;
+	margin: 0 auto;
+	max-width: 1170px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	grid-column-gap: 1.5rem;
+	grid-row-gap: 2rem;
+}
+
+.img-container {
+	position: relative;
+	overflow: hidden;
+}
+
+.bag-btn {
+	position: absolute;
+	top: 70%;
+	right: 0;
+	background: var(--primaryColor);
+	border: none;
+	text-transform: uppercase;
+	padding: 0.5rem 0.75rem;
+	letter-spacing: var(--mainSpacing);
+	font-weight: bold;
+	transition: var(--mainTransition);
+	transform: translateX(101%);
+	cursor: pointer;
+}
+
+.bag-btn:hover {
+	color: var(--mainWhite);
+}
+
+.fa-shopping-cart {
+	margin-right: 0.5rem;
+}
+
+.img-container:hover .bag-btn {
+	transform: translateX(0);
+}
+
+.product-img {
+	display: block;
+	width: 100%;
+	min-height: 12rem;
+	transition: var(--mainTransition);
+}
+
+.img-container:hover .product-img {
+	opacity: 0.5;
+}
+
+.product h3 {
+	text-transform: capitalize;
+	font-size: 1.1rem;
+	margin-top: 1rem;
+	letter-spacing: var(--mainSpacing);
+	text-align: center;
+}
+
+.product h4 {
+	margin-top: 0.7rem;
+	letter-spacing: var(--mainSpacing);
+	color: var(--primaryColor);
+	text-align: center;
+}
+/* PRODUCT section ends */
+
+/* CART section starts */
+.cart-overlay {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	transition: var(--mainTransition);
+	background: rgba(228, 204, 236, 0.5);
+	z-index: 2;
+	visibility: hidden;
+}
+
+.cart {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	overflow: scroll;
+	z-index: 3;
+	background: rgb(239, 236, 240);
+	padding: 1.5rem;
+	transition: var(--mainTransition);
+	transform: translateX(100%);
+}
+
+.showCart {
+	transform: translateX(0);
+}
+
+.transparentBcg {
+	visibility: visible;
+}
+
+@media screen and (min-width: 768px) {
+	.cart {
+		width: 30vw;
+		min-width: 450px;
+	}
+}
+
+.close-cart {
+	font-size: 1.7rem;
+	cursor: pointer;
+}
+
+.cart h2 {
+	text-transform: capitalize;
+	text-align: center;
+	letter-spacing: var(--mainSpacing);
+	margin-bottom: 2rem;
+}
+
+/* Cart Item starts */
+.cart-item {
+	display: grid;
+	align-items: center;
+	grid-template-columns: auto 1fr auto;
+	grid-column-gap: 1.5rem;
+	margin: 1.5rem 0;
+}
+
+.cart-item img {
+	width: 75px;
+	height: 75px;
+}
+
+.cart-item h4 {
+	font-size: 0.85rem;
+	text-transform: capitalize;
+	letter-spacing: var(--mainSpacing);
+}
+
+.cart-item h5 {
+	margin: 0.5rem 0;
+	letter-spacing: var(--mainSpacing);
+}
+
+.item-amount {
+	text-align: center;
+}
+
+.remove-item {
+	color: grey;
+	cursor: pointer;
+}
+
+.fa-chevron-up,
+.fa-chevron-down {
+	color: var(--primaryColor);
+	cursor: pointer;
+}
+/* End of Cart Item  */
+
+.cart-footer {
+	margin-top: 2rem;
+	letter-spacing: var(--mainSpacing);
+	text-align: center;
+}
+
+.cart-footer h3 {
+	text-transform: capitalize;
+	margin-bottom: 1rem;
+}
+/* End of CART section */
+
+/* Footer section starts */
+.footer {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	background: #128190;
+	margin-top: 3rem;
+	padding: 2rem 0 2.5rem 0;
+}
+
+.footer h3 {
+	border-bottom: 1px solid rgb(84, 22, 228);
+	margin-bottom: 0.5em;
+	padding-bottom: 0.5em;
+}
+
+.footer p {
+	letter-spacing: 3px;
+	padding-bottom: 0.2em;
+}
+.footer p i {
+	padding-top: 0.5em;
+	/* color: var(--primaryColor); */
+	color: #ac7fe0;
+	font-size: 2em;
+}
+/* End of Footer section */
